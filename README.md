@@ -44,9 +44,7 @@ Lakukan Restore NuGet Packages jika diperlukan.
 Tekan tombol Start / F5 untuk menjalankan aplikasi.
 
 👤 Author
-Harsa Bumi Rahman
+A.Banirahman
 
 GitHub: @ABanira
 
-
-<FollowUp>Apakah draf README di atas sudah sesuai dengan gambaran project Anda, atau ada bagian fitur yang ingin ditambahkan?</FollowUp>
