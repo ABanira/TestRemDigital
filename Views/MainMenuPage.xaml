@@ -1,0 +1,111 @@
+﻿<Page x:Class="TestRemDigital.Views.MainMenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TestRemDigital.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1024"
+      Title="MainMenuPage" Background="#111827">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Mengikuti tinggi isi header secara alami -->
+            <RowDefinition Height="*"/>
+            <!-- Memenuhi sisa layar secara fleksibel -->
+        </Grid.RowDefinitions>
+
+        <!-- HEADER MENU UTAMA -->
+        <Border Grid.Row="0" BorderBrush="#374151" BorderThickness="0,0,0,2" Margin="20,15,20,0" Padding="0,0,0,12">
+            <Grid>
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                    <TextBlock Text="ALAT UJI SISTEM PENGEREMAN KERETA" FontSize="22" FontWeight="Bold" Foreground="#F97316"/>
+                    <TextBlock Text="Sistem Pengereman Statis Kereta Api" FontSize="13" Foreground="#9CA3AF" Margin="0,2,0,0"/>
+                </StackPanel>
+
+                <Border HorizontalAlignment="Right" VerticalAlignment="Center" Background="#991B1B" BorderBrush="#EF4444" BorderThickness="1.5" CornerRadius="8" Width="170" Height="42">
+                    <Grid>
+                        <Button Name="BtnShutdownKomputer" Click="BtnShutdownKomputer_Click" Background="Transparent" BorderThickness="0" Cursor="Hand"/>
+                        <TextBlock Text="🛑 MATIKAN ALAT" FontSize="12" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- GRID 4 TOMBOL UTAMA -->
+        <Grid Grid.Row="1" Margin="20,20,20,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+                <!-- Jarak antar kolom lebih rapat agar tombol lebih luas -->
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- KOLOM KIRI (TAMBAH DATA & SETTING) -->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- BUTTON TAMBAH DATA -->
+                <Border Grid.Row="0" Background="#1E3A8A" BorderBrush="#3B82F6" BorderThickness="2" CornerRadius="12">
+                    <Grid>
+                        <Button Name="BtnTambahData" Click="BtnTambahData_Click" Opacity="1" Background="Transparent" BorderThickness="0" Cursor="Hand"/>
+                        <StackPanel VerticalAlignment="Center" IsHitTestVisible="False">
+                            <TextBlock Text="➕" FontSize="42" HorizontalAlignment="Center" Margin="0,0,0,6"/>
+                            <TextBlock Text="TAMBAH DATA" FontSize="20" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Mulai pengujian baru sarana kereta api" FontSize="11" Foreground="#9CA3AF" HorizontalAlignment="Center" Margin="0,4,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <!-- BUTTON SETTING & KALIBRASI -->
+                <Border Grid.Row="2" Background="#A78BFA" BorderBrush="#6D28D9" BorderThickness="1.5" CornerRadius="10">
+                    <Grid>
+                        <Button Name="BtnSetting" Click="BtnSetting_Click" Background="Transparent" BorderThickness="0" Cursor="Hand"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False">
+                            <TextBlock Text="⚙️" FontSize="22" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                            <TextBlock Text="SETTING DAN KALIBRASI" FontSize="15" FontWeight="SemiBold" Foreground="White" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!-- KOLOM KANAN (LOAD DATA & CHECK SENSOR) -->
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- BUTTON LOAD DATA -->
+                <Border Grid.Row="0" Background="#065F46" BorderBrush="#10B981" BorderThickness="2" CornerRadius="12">
+                    <Grid>
+                        <Button Name="BtnLoadData" Click="BtnLoadData_Click" Opacity="1" Background="Transparent" BorderThickness="0" Cursor="Hand"/>
+                        <StackPanel VerticalAlignment="Center" IsHitTestVisible="False">
+                            <TextBlock Text="📂" FontSize="42" HorizontalAlignment="Center" Margin="0,0,0,6"/>
+                            <TextBlock Text="LOAD DATA" FontSize="20" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Cari dan lihat riwayat hasil uji" FontSize="11" Foreground="#9CA3AF" HorizontalAlignment="Center" Margin="0,4,0,0"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <!-- BUTTON CHECK SENSOR -->
+                <Border Grid.Row="2" Background="#78350F" BorderBrush="#F59E0B" BorderThickness="1.5" CornerRadius="10">
+                    <Grid>
+                        <Button Name="BtnKalibrasi" Click="BtnKalibrasi_Click" Background="Transparent" BorderThickness="0" Cursor="Hand"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False">
+                            <TextBlock Text="⚖️" FontSize="22" Margin="0,0,8,0" VerticalAlignment="Center"/>
+                            <TextBlock Text="CHECK SENSOR" FontSize="15" FontWeight="SemiBold" Foreground="White" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Page>

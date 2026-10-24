@@ -1,0 +1,134 @@
+﻿<Page x:Class="TestRemDigital.Views.TambahDataPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TestRemDigital.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1024"
+      Title="TambahDataPage" Background="#111827">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- HEADER -->
+            <RowDefinition Height="*"/>
+            <!-- CONTENT AREA -->
+            <RowDefinition Height="Auto"/>
+            <!-- FOOTER BUTTONS -->
+        </Grid.RowDefinitions>
+
+        <!-- 1. HEADER (TETAP TIDAK DIUBAH) -->
+        <StackPanel Grid.Row="0" VerticalAlignment="Top" Margin="0,0,0,10">
+            <TextBlock Text="🚀 INISIASI PENGUJIAN REM" FontSize="20" FontWeight="Bold" Foreground="#F97316"/>
+            <TextBlock Text="Pilih mode fase pengujian sebelum memulai pengujian pada test bench" FontSize="12" Foreground="#9CA3AF" Margin="0,2,0,0"/>
+            <Border BorderBrush="#374151" BorderThickness="0,0,0,1.5" Margin="0,8,0,0"/>
+        </StackPanel>
+
+        <!-- 2. FORM UTAMA / CONTENT AREA -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="0,0,0,12" Padding="0,0,5,0">
+            <Grid Margin="0,5,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- SEBELAH KIRI: PILIHAN FASE UJI & CATATAN PROSEDUR LAPANGAN -->
+                <StackPanel Grid.Column="0" VerticalAlignment="Top">
+                    <Border Background="#1F2937" CornerRadius="8" Padding="12" Margin="0,0,0,10">
+                        <StackPanel>
+                            <TextBlock Text="⚙️ PILIH FASE PENGUJIAN" FontSize="22" FontWeight="Bold" Foreground="#38BDF8" Margin="0,0,0,10"/>
+
+                            <!-- 1. Fase Lengkap -->
+                            <CheckBox Name="ChkFaseLengkap" Content="1. Lengkap" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,5,0,8" IsChecked="True" Checked="ChkFaseLengkap_Checked" Unchecked="ChkFaseLengkap_Unchecked"/>
+
+                            <!-- 2. Charging -->
+                            <CheckBox Name="ChkCharging" Content="2. Charging" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,4,0,2" IsChecked="True" Checked="ChkFaseItem_Checked"/>
+                            <TextBlock Text="- Waktu pengisian Auxiliary Reservoir (AR) dari tekanan 0,0 kg/ cm² s/d 4,8 kg/ cm²" FontSize="11" FontStyle="Italic" Foreground="#9CA3AF" Margin="18,0,0,2" TextWrapping="Wrap"/>
+                            <TextBlock Text="- Waktu pengisian Control Chamber (CR) dari tekanan 0,0 kg/ cm² s/d 4,8 kg/ cm²" FontSize="11" FontStyle="Italic" Foreground="#9CA3AF" Margin="18,0,0,8" TextWrapping="Wrap"/>
+
+                            <!-- 3. Leaktest -->
+                            <CheckBox Name="ChkLeakTest" Content="3. Leaktest" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,4,0,2" IsChecked="True" Checked="ChkFaseItem_Checked"/>
+                            <TextBlock Text="- Batas Toleransi Penurunan Tekanan BP: Maksimal 0,30 Bar" FontSize="11" FontStyle="Italic" Foreground="#9CA3AF" Margin="18,0,0,2" TextWrapping="Wrap"/>
+
+                            <!-- 4. Service Brake (Menu Baru: Uji Pengereman Bertahap) -->
+                            <CheckBox Name="ChkServiceBrake" Content="4. Service Brake" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,4,0,2" IsChecked="True" Checked="ChkFaseItem_Checked"/>
+                            <TextBlock Text="- Pengurangan tekanan di Brake Pipe sebesar 0,5 bar" FontSize="11" FontStyle="Italic" Foreground="#9CA3AF" Margin="18,0,0,2" TextWrapping="Wrap"/>
+                            <TextBlock Text="- Pengurangan tekanan di Brake Pipe sebesar 1 bar" FontSize="11" FontStyle="Italic" Foreground="#9CA3AF" Margin="18,0,0,2" TextWrapping="Wrap"/>
+                            <TextBlock Text="- Pengurangan tekanan di Brake Pipe sebesar 1,5 bar" FontSize="11" FontStyle="Italic" Foreground="#9CA3AF" Margin="18,0,0,2" TextWrapping="Wrap"/>
+
+                            <!-- 5. Emergency Brake -->
+                            <CheckBox Name="ChkEmergencyBrake" Content="5. Emergency Brake" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,4,0,2" IsChecked="True" Checked="ChkFaseItem_Checked"/>
+                            <TextBlock Text="- Uji respons buangan total tekanan BP secara instan/darurat" FontSize="11" FontStyle="Italic" Foreground="#9CA3AF" Margin="18,0,0,2" TextWrapping="Wrap"/>
+                            <TextBlock Text="- Waktu pengisian tekanan sampai dengan 95% pada brake cylinder 3 -5 detik" FontSize="11" FontStyle="Italic" Foreground="#9CA3AF" Margin="18,0,0,2" TextWrapping="Wrap"/>
+                            <TextBlock Text="- Tekanan maksimum pada Brake Cylinder 3.8 ± 0.1 bar" FontSize="11" FontStyle="Italic" Foreground="#9CA3AF" Margin="18,0,0,2" TextWrapping="Wrap"/>
+                           
+                            <!-- 6. Release -->
+                            <CheckBox Name="ChkRelease" Content="6. Release" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,4,0,2" IsChecked="True" Checked="ChkFaseItem_Checked"/>
+                            <TextBlock Text="- Waktu pelepasan sampai dengan 0,4 kg/cm² pada brake cylinder 15-20 detik" FontSize="11" FontStyle="Italic" Foreground="#9CA3AF" Margin="18,0,0,2" TextWrapping="Wrap"/>
+                            <TextBlock Text="- Tekanan Air Reservoir pada saat tekanan Brake Cylinder 0,4 bar " FontSize="11" FontStyle="Italic" Foreground="#9CA3AF" Margin="18,0,0,2" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+                    <!-- BOX CATATAN PROSEDUR LAPANGAN -->
+                    <Border Background="#1F2937" BorderBrush="#374151" BorderThickness="1" CornerRadius="8" Padding="12">
+                        <StackPanel>
+                            <TextBlock Text="⚠️ CATATAN PROSEDUR LAPANGAN" FontSize="22" FontWeight="Bold" Foreground="#F97316" Margin="0,0,0,6"/>
+                            <TextBlock Text="Pastikan posisi kran mekanis utama (Manifold Test) dalam keadaan tertutup sebelum menekan tombol Mulai Uji. Sistem sensor akan otomatis standby menunggu tekanan udara masuk." FontSize="11" Foreground="#9CA3AF" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+                
+                <!-- SEBELAH KANAN: SIKLUS PENGULANGAN & INFORMASI ALUR KERJA -->
+                <StackPanel Grid.Column="2" VerticalAlignment="Top">
+                    <Border Background="#1F2937" CornerRadius="8" Padding="12" Margin="0,0,0,10">
+                        <StackPanel>
+                            <TextBlock Text="🔄 SIKLUS PENGULANGAN UJI" FontSize="20" FontWeight="Bold" Foreground="#38BDF8" Margin="0,0,0,6"/>
+                            <ComboBox Name="CmbSiklus" Height="38" FontSize="18" FontWeight="Bold" Padding="8,6" 
+                                      Background="#374151" Foreground="Black" BorderBrush="#4B5563" BorderThickness="1">
+                                <ComboBoxItem Content="1 kali" IsSelected="True" Foreground="Black"/>
+                                <ComboBoxItem Content="2 kali" Foreground="Black"/>
+                                <ComboBoxItem Content="3 kali" Foreground="Black"/>
+                                <ComboBoxItem Content="4 kali" Foreground="Black"/>
+                                <ComboBoxItem Content="5 kali" Foreground="Black"/>
+                            </ComboBox>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- BOX INFORMASI ALUR KERJA -->
+                    <Border Background="#1F2937" BorderBrush="#374151" BorderThickness="1" CornerRadius="8" Padding="12">
+                        <StackPanel>
+                            <TextBlock Text="💡 INFORMASI ALUR KERJA" FontSize="22" FontWeight="Bold" Foreground="#38BDF8" Margin="0,0,0,6"/>
+                            <TextBlock Text="Silakan pilih fase pengujian dan jumlah siklus terlebih dahulu. Identitas sarana (Nomor KA &amp; Program Perawatan) akan diisi pada akhir pengujian." FontSize="11" Foreground="#9CA3AF" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+        <!-- 3. FOOTER NAVIGASI (TETAP TIDAK DIUBAH) -->
+        <Grid Grid.Row="2" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- TOMBOL KEMBALI -->
+            <Border Grid.Column="0" Background="#374151" BorderBrush="#4B5563" BorderThickness="1.5" CornerRadius="8" Height="38">
+                <Grid>
+                    <Button Name="BtnKembali" Click="BtnKembali_Click" Background="Transparent" BorderThickness="0" Cursor="Hand"/>
+                    <TextBlock Text="⬅️ KEMBALI" FontSize="12" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False"/>
+                </Grid>
+            </Border>
+
+            <!-- TOMBOL MULAI UJI -->
+            <Border Grid.Column="2" Background="#EA580C" BorderBrush="#F97316" BorderThickness="1.5" CornerRadius="8" Height="38">
+                <Grid>
+                    <Button Name="BtnMulaiUji" Click="BtnMulaiUji_Click" Background="Transparent" BorderThickness="0" Cursor="Hand"/>
+                    <TextBlock Text="MULAI UJI ➡️" FontSize="12" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>

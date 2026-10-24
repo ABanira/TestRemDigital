@@ -1,0 +1,26 @@
+﻿<Page x:Class="TestRemDigital.Views.SplashPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TestRemDigital.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1024"
+      Title="SplashPage" Width="1024" Height="600" Background="#111827">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Image Source="/logobymri.png" 
+                   Width="450" 
+                   Height="180" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,0,0,25"
+                   RenderOptions.BitmapScalingMode="HighQuality"/>
+
+            <TextBlock Text="TEST REM DIGITAL" FontSize="36" FontWeight="Black" Foreground="#F97316" HorizontalAlignment="Center"/>
+            <TextBlock Text="UPT. BALAI YASA MANGGARAI" FontSize="16" FontWeight="SemiBold" Foreground="#FFF" HorizontalAlignment="Center" Margin="0,5,0,30"/>
+
+            <TextBlock Text="Memuat Sistem &amp; Kalibrasi Sensor..." FontSize="14" FontStyle="Italic" Foreground="#6B7280" HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Page>
